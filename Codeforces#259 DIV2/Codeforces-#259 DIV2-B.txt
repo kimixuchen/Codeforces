@@ -1,0 +1,74 @@
+/**
+ * Codeforces-#259 DIV2-B
+ * 2015-11-22 14:02:03
+ * xuchen
+**/
+/**
+**/
+#include <iostream>
+#include <cstdio>
+#include <cmath>
+#include <vector>
+#include <string.h>
+#include <algorithm>
+#include <stdlib.h>
+using namespace std;
+
+const int N = 100005;
+
+
+int main()
+{
+	int n, mPre, mCur, m1;
+	scanf("%d", &n);
+	int mid = 0;
+	scanf("%d", &m1);
+	mPre = m1;
+	int i;
+	for(i=1; i<n; i++)
+	{
+		scanf("%d", &mCur);
+		if(mCur >= mPre)
+		{
+			mPre = mCur;
+			continue;
+		}
+		if(mCur < mPre)
+		{
+			mid = i;
+			mPre = mCur;
+			i++;
+			break;
+		}
+	}	
+	for(; i<n; i++)
+	{
+		scanf("%d", &mCur);
+		if(mCur < mPre)
+		{
+			mid = -1;
+			break;
+		}
+		mPre = mCur;
+	}
+	if(mid > 0)
+	{
+		if(mCur > m1)
+			mid = -1;
+	}
+
+	int ans;
+	switch(mid)
+	{
+		case -1:
+			ans = -1;
+			break;
+		case 0:
+			ans = 0;
+			break;
+		default:
+			ans = n-mid;
+	}
+	printf("%d\n", ans);
+	return 0;
+}

@@ -1,0 +1,61 @@
+/**
+ * Codeforces-#259 DIV2-A
+ * 2015-11-22 14:02:03
+ * xuchen
+**/
+/**
+**/
+#include <iostream>
+#include <cstdio>
+#include <cmath>
+#include <vector>
+#include <string.h>
+#include <algorithm>
+#include <stdlib.h>
+using namespace std;
+
+const int N = 105;
+
+
+int main()
+{
+	int n;
+	scanf("%d", &n);
+	int rows = n/2;
+	for(int i=0; i<rows; i++)
+	{
+		for(int j=0; j<(rows-i); j++)
+		{
+			printf("*");
+		}
+		for(int j=0; j<2*i+1; j++)
+		{
+			printf("D");
+		}
+		for(int j=0; j<(rows-i); j++)
+		{
+			printf("*");
+		}
+		printf("\n");
+	}
+	for(int i=0; i<n; i++)
+		printf("D");
+	printf("\n");
+	for(int i=0; i<rows; i++)
+	{
+		for(int j=0; j<(i+1); j++)
+		{
+			printf("*");
+		}
+		for(int j=0; j<2*(rows-i)-1; j++)
+		{
+			printf("D");
+		}
+		for(int j=0; j<i+1; j++)
+		{
+			printf("*");
+		}
+		printf("\n");
+	}
+	return 0;
+}
